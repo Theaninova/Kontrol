@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.accompanist.insets.statusBarsPadding
 import de.theaninova.kontrol.components.GiantButton
+import de.theaninova.kontrol.components.HapticToggleSurface
 import de.theaninova.kontrol.components.InfoText
 import de.theaninova.kontrol.controls.Kontrol
 import de.theaninova.kontrol.controls.schema.KONTROL_TEST_ITEMS
@@ -80,15 +81,15 @@ fun KontrolPage(item: KontrolSection, navigationController: NavController? = nul
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(84.dp),
-                enabled = isEnabled,
+                state = isEnabled,
                 onToggle = { isEnabled = it }
             ) {
                 AnimatedContent(targetState = isEnabled) {
                     Text(
                         text = if (isEnabled) "Enabled" else "Disabled",
                         fontSize = 20.sp,
-                        color = if (isEnabled) MaterialTheme.colorScheme.onPrimary
-                        else MaterialTheme.colorScheme.onSurfaceVariant
+                        color = if (isEnabled) MaterialTheme.colorScheme.onSecondary
+                        else MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
             }

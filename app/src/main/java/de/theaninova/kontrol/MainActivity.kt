@@ -3,6 +3,7 @@ package de.theaninova.kontrol
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import de.theaninova.kontrol.ui.theme.KontrolTheme
 
+@ExperimentalAnimationApi
 @ExperimentalPermissionsApi
 @ExperimentalMaterial3Api
 class MainActivity : ComponentActivity() {

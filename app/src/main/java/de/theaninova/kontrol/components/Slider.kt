@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -72,14 +73,11 @@ fun SuperSlider(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            Box(
-                Modifier
-                    .height(4.dp)
-                    .weight(1f)
-                    .background(
-                        color = MaterialTheme.colorScheme.surfaceVariant,
-                        shape = RoundedCornerShape(percent = 100),
-                    )
+            Surface(
+                shape = RoundedCornerShape(percent = 100),
+                color = MaterialTheme.colorScheme.surface,
+                tonalElevation = 4.dp,
+                modifier = Modifier.height(4.dp).weight(1f)
             ) {
 
             }
@@ -87,14 +85,12 @@ fun SuperSlider(
                 Text(label, Modifier.padding(start = 8.dp))
             }
         }
-        Box(
+        Surface(
+            shape = RoundedCornerShape(percent = 100),
+            color = color,
             modifier = Modifier
                 .height(height)
                 .fillMaxWidth(max(min(value, 1F), endFraction))
-                .background(
-                    color = color,
-                    shape = RoundedCornerShape(percent = 100),
-                )
                 .draggable(
                     enabled = enabled,
                     orientation = Orientation.Horizontal,
@@ -102,7 +98,6 @@ fun SuperSlider(
                         onValueChange((delta / parentWidth.width) + value)
                     }
                 ),
-            contentAlignment = Alignment.CenterStart,
         ) {
             Row(
                 modifier = Modifier
@@ -127,13 +122,10 @@ fun SuperSlider(
                     )
                 } else {
                     Row {
-                        Box(
-                            Modifier
-                                .size(8.dp)
-                                .background(
-                                    shape = CircleShape,
-                                    color = textColor,
-                                )
+                        Surface(
+                            modifier = Modifier.size(8.dp),
+                            shape = CircleShape,
+                            color = textColor,
                         ) {}
                         Spacer(Modifier.width(8.dp))
                     }
