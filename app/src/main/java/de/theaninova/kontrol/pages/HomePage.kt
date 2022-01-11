@@ -1,5 +1,6 @@
 package de.theaninova.kontrol.pages
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.foundation.background
@@ -26,6 +27,7 @@ import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import de.theaninova.kontrol.components.GiantButton
 import de.theaninova.kontrol.controls.schema.KontrolIconSet
 import de.theaninova.kontrol.controls.schema.KontrolSection
 import dev.burnoo.compose.rememberpreference.rememberBooleanPreference
@@ -33,6 +35,7 @@ import dev.burnoo.compose.rememberpreference.rememberStringPreference
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
+@ExperimentalAnimationApi
 @ExperimentalPermissionsApi
 @ExperimentalMaterial3Api
 @Composable
@@ -83,7 +86,8 @@ fun HomePage(navController: NavController? = null) {
                         applyTop = true,
                         applyBottom = true,
                     ),
-                    modifier = Modifier.padding(horizontal = 16.dp)
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp)
                         .scrollable(scrollState, Orientation.Vertical)
                 ) {
                     items(kontrolStructure) { item ->
@@ -133,6 +137,7 @@ fun HomePage(navController: NavController? = null) {
     }
 }
 
+@ExperimentalAnimationApi
 @ExperimentalPermissionsApi
 @Preview
 @ExperimentalMaterial3Api
