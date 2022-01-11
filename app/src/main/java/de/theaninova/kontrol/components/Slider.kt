@@ -1,6 +1,9 @@
 package de.theaninova.kontrol.components
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
@@ -32,6 +35,7 @@ fun SuperSlider(
     label: String,
     modifier: Modifier = Modifier,
     icon: ImageVector? = null,
+    enabled: Boolean = true,
     value: Float = .5F,
     height: Dp = 48.dp,
     onValueChange: (Float) -> Unit = {},
@@ -41,10 +45,17 @@ fun SuperSlider(
     val endFraction by remember(parentWidth) {
         mutableStateOf(endMin / parentWidth.width)
     }
-
     val showTextOnLeft by remember(value) {
         mutableStateOf(value > .5F)
     }
+    val color by animateColorAsState(
+        if (enabled) MaterialTheme.colorScheme.secondary
+        else MaterialTheme.colorScheme.surfaceVariant
+    )
+    val textColor by animateColorAsState(
+        if (enabled) MaterialTheme.colorScheme.onSecondary
+        else MaterialTheme.colorScheme.onSurfaceVariant
+    )
 
     Box(
         contentAlignment = Alignment.CenterStart,
@@ -81,10 +92,11 @@ fun SuperSlider(
                 .height(height)
                 .fillMaxWidth(max(min(value, 1F), endFraction))
                 .background(
-                    color = MaterialTheme.colorScheme.secondary,
+                    color = color,
                     shape = RoundedCornerShape(percent = 100),
                 )
                 .draggable(
+                    enabled = enabled,
                     orientation = Orientation.Horizontal,
                     state = rememberDraggableState { delta ->
                         onValueChange((delta / parentWidth.width) + value)
@@ -103,13 +115,13 @@ fun SuperSlider(
                     Text(
                         text = label,
                         textAlign = TextAlign.Center,
-                        color = MaterialTheme.colorScheme.onSecondary
+                        color = textColor
                     )
                 }
                 Spacer(Modifier.width(0.dp))
                 if (icon != null) {
                     Icon(
-                        tint = MaterialTheme.colorScheme.onSecondary,
+                        tint = textColor,
                         imageVector = icon,
                         contentDescription = label
                     )
@@ -120,7 +132,7 @@ fun SuperSlider(
                                 .size(8.dp)
                                 .background(
                                     shape = CircleShape,
-                                    color = MaterialTheme.colorScheme.onSecondary,
+                                    color = textColor,
                                 )
                         ) {}
                         Spacer(Modifier.width(8.dp))

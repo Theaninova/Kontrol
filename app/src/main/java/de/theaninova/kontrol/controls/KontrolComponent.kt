@@ -21,7 +21,7 @@ import dev.burnoo.compose.rememberpreference.rememberBooleanPreference
 import dev.burnoo.compose.rememberpreference.rememberFloatPreference
 
 @Composable
-fun Kontrol(item: KontrolItem, parentKey: String) {
+fun Kontrol(item: KontrolItem, enabled: Boolean, parentKey: String) {
     when (item) {
         is KontrolSeparator -> Row {
             Spacer(Modifier.height(8.dp))
@@ -52,6 +52,7 @@ fun Kontrol(item: KontrolItem, parentKey: String) {
             SuperSlider(
                 label = item.name,
                 icon = item.icon?.icon,
+                enabled = enabled,
                 value = state,
                 onValueChange = { state = it }
             )

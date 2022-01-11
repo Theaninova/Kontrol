@@ -1,10 +1,12 @@
 package de.theaninova.kontrol.pages
 
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.rememberSplineBasedDecay
+import androidx.compose.animation.*
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
@@ -15,12 +17,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.accompanist.insets.statusBarsPadding
+import de.theaninova.kontrol.components.GiantButton
 import de.theaninova.kontrol.components.InfoText
 import de.theaninova.kontrol.controls.Kontrol
 import de.theaninova.kontrol.controls.schema.KONTROL_TEST_ITEMS
@@ -28,6 +33,7 @@ import de.theaninova.kontrol.controls.schema.KontrolIconSet
 import de.theaninova.kontrol.controls.schema.KontrolSection
 import dev.burnoo.compose.rememberpreference.rememberBooleanPreference
 
+@ExperimentalAnimationApi
 @ExperimentalMaterial3Api
 @Composable
 fun KontrolPage(item: KontrolSection, navigationController: NavController? = null) {
@@ -41,9 +47,11 @@ fun KontrolPage(item: KontrolSection, navigationController: NavController? = nul
         topBar = {
             LargeTopAppBar(
                 modifier = Modifier.statusBarsPadding(),
-                title = { Text(
-                    item.title, style = MaterialTheme.typography.headlineMedium
-                ) },
+                title = {
+                    Text(
+                        item.title, style = MaterialTheme.typography.headlineMedium
+                    )
+                },
                 actions = {
                     IconButton(onClick = { navigationController?.navigate("settings") }) {
                         Icon(imageVector = KontrolIconSet.Settings, contentDescription = "Settings")
@@ -58,36 +66,29 @@ fun KontrolPage(item: KontrolSection, navigationController: NavController? = nul
             )
         },
     ) {
-        Column(Modifier.padding(horizontal = 16.dp).fillMaxSize()) {
+        Column(
+            Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxSize()
+        ) {
             var isEnabled by rememberBooleanPreference(
                 keyName = item.title,
                 initialValue = false,
                 defaultValue = false
             )
-            val color by animateColorAsState(
-                if (isEnabled) MaterialTheme.colorScheme.primaryContainer
-                else MaterialTheme.colorScheme.surfaceVariant
-            )
-            Box(
-                Modifier
-                    .toggleable(
-                        value = isEnabled,
-                        onValueChange = { isEnabled = it }
-                    )
-                    .background(
-                        color = color,
-                        shape = RoundedCornerShape(30.dp),
-                    )
-                    .padding(horizontal = 24.dp, vertical = 16.dp)
+            GiantButton(
+                modifier = Modifier
                     .fillMaxWidth()
+                    .height(84.dp),
+                enabled = isEnabled,
+                onToggle = { isEnabled = it }
             ) {
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
+                AnimatedContent(targetState = isEnabled) {
                     Text(
-                        text = "Enable all effects",
+                        text = if (isEnabled) "Enabled" else "Disabled",
                         fontSize = 20.sp,
+                        color = if (isEnabled) MaterialTheme.colorScheme.onPrimary
+                        else MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -100,7 +101,7 @@ fun KontrolPage(item: KontrolSection, navigationController: NavController? = nul
             }
 
             for (kontrol in item.items) {
-                Kontrol(item = kontrol, item.title)
+                Kontrol(item = kontrol, isEnabled, item.title)
                 Spacer(Modifier.height(8.dp))
             }
 
@@ -109,6 +110,7 @@ fun KontrolPage(item: KontrolSection, navigationController: NavController? = nul
 }
 
 
+@ExperimentalAnimationApi
 @ExperimentalMaterial3Api
 @Preview
 @Composable

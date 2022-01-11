@@ -93,8 +93,12 @@ fun HomePage(navController: NavController? = null) {
                             defaultValue = false
                         )
                         val color by animateColorAsState(
-                            if (isEnabled) MaterialTheme.colorScheme.primaryContainer
+                            if (isEnabled) MaterialTheme.colorScheme.primary
                             else MaterialTheme.colorScheme.surfaceVariant
+                        )
+                        val textColor by animateColorAsState(
+                            if (isEnabled) MaterialTheme.colorScheme.onPrimary
+                            else MaterialTheme.colorScheme.onSurfaceVariant
                         )
 
                         Box(Modifier
@@ -102,18 +106,23 @@ fun HomePage(navController: NavController? = null) {
                             .clickable { navController?.navigate(item.title) }
                             .background(
                                 color = color,
-                                shape = RoundedCornerShape(12.dp),
+                                shape = RoundedCornerShape(24.dp),
                             )
                             .fillMaxWidth()
                         ) {
-                            Column(Modifier.padding(12.dp)) {
+                            Column(Modifier.padding(16.dp)) {
                                 Text(
                                     text = item.title,
-                                    fontSize = 24.sp,
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    color = textColor,
                                 )
                                 if (item.description != null) {
                                     Spacer(Modifier.height(8.dp))
-                                    Text(text = item.description)
+                                    Text(
+                                        text = item.description,
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        color = textColor
+                                    )
                                 }
                             }
                         }
