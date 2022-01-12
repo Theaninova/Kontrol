@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -20,6 +21,7 @@ import de.theaninova.kontrol.controls.schema.KontrolSlider
 import dev.burnoo.compose.rememberpreference.rememberBooleanPreference
 import dev.burnoo.compose.rememberpreference.rememberFloatPreference
 
+@ExperimentalComposeUiApi
 @Composable
 fun Kontrol(item: KontrolItem, enabled: Boolean, parentKey: String) {
     when (item) {

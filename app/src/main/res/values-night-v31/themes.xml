@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@color/material_dynamic_primary20
+        </item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_kontrol_dark</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">#00000000</item>
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+    </style>
+</resources>

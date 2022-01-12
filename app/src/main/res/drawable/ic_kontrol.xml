@@ -1,0 +1,72 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:name="rotationGroup"
+        android:pivotX="54"
+        android:pivotY="54"
+        android:rotation="0">
+        <path
+            android:pathData="M41.322,53.514C27.424,48.268 28.907,44.778 29.649,43.356C30.59,41.551 31.583,38.599 33.34,37.82C35.287,36.955 38.002,40.003 39.928,38.689"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M37.493,45.369C36.243,38.845 44.865,35.301 46.554,34.656C49.705,33.453 47.639,29.852 49.997,27.984C51.687,26.646 55.49,27.439 57.428,27.649C61.573,28.099 63.577,50.02 48.217,42.568"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M60.808,34.28C65.218,36.387 66.868,39.176 71.087,37.783C72.948,37.168 74.453,37.044 75.57,38.495C77.684,41.241 80.433,44.447 77.559,47.012C72.425,51.592 75.539,54.355 74.642,58.546"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M56.71,50.559C63.476,52.686 67.366,49.184 67.79,43.644"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M42.746,46.021C47.419,50.786 52.353,48.815 58.273,51.07C62.888,52.828 76.903,58.337 78.069,61.68C79.057,64.513 79.092,67.856 74.976,70.537C73.347,71.598 71.401,69.539 69.123,69.787C66.392,70.084 64.195,73.379 60.758,74.094C57.602,74.75 56.052,69.736 55.994,69.866"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M60.758,74.094C59.981,80.91 57.114,81.115 52.833,80.602C48.552,80.088 52.686,75.559 48.09,73.473C45.49,72.294 44.028,72.109 42.947,71.468C38.874,69.053 38.081,65.908 39.71,61.68"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M40.534,69.56C39.194,70.447 34.325,71.545 33.33,70.418C30.907,67.676 27.813,61.958 31.236,60.896C35.453,59.588 33.253,53.884 33.693,50.011"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M67.401,70.348C75.042,66.125 61.894,59.891 57.999,57.266"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M60.996,59.103C63.675,60.879 65.361,61.571 67.79,60.066"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M49.134,74.094C45.423,68.861 57.727,64.576 54.199,61.253C51.452,58.666 52.146,56.931 47.661,54.125"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M52.833,59.703C49.692,56.515 47.978,60.896 45.28,59.134"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+        <path
+            android:pathData="M59.862,39.19C58.129,42.848 53.099,39.321 53.144,36.297"
+            android:strokeWidth="4"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/material_dynamic_primary30" />
+    </group>
+</vector>

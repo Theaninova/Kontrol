@@ -5,6 +5,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,6 +21,7 @@ import dev.burnoo.compose.rememberpreference.rememberStringPreference
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
+@ExperimentalComposeUiApi
 @ExperimentalAnimationApi
 @ExperimentalPermissionsApi
 @ExperimentalMaterial3Api
@@ -59,6 +61,7 @@ fun MainLayout() {
     }
 }
 
+@ExperimentalComposeUiApi
 @ExperimentalAnimationApi
 @ExperimentalPermissionsApi
 @ExperimentalMaterial3Api

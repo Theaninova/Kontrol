@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -34,6 +35,7 @@ import de.theaninova.kontrol.controls.schema.KontrolIconSet
 import de.theaninova.kontrol.controls.schema.KontrolSection
 import dev.burnoo.compose.rememberpreference.rememberBooleanPreference
 
+@ExperimentalComposeUiApi
 @ExperimentalAnimationApi
 @ExperimentalMaterial3Api
 @Composable
@@ -111,6 +113,7 @@ fun KontrolPage(item: KontrolSection, navigationController: NavController? = nul
 }
 
 
+@ExperimentalComposeUiApi
 @ExperimentalAnimationApi
 @ExperimentalMaterial3Api
 @Preview
