@@ -1,7 +1,7 @@
 # Kontrol
 
 <p align="start">
-    <a href="https://play.google.com/store/apps/details?id=de.theaninova.kontrol">
+    <a href="https://play.google.com/store/apps/details?id=de.theaninova.kontrol" target="_blank" rel="noopener">
         <img src="https://cdn.rawgit.com/steverichey/google-play-badge-svg/master/img/en_get.svg" width="250px">
     </a>
 </p>
