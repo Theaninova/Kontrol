@@ -29,6 +29,15 @@ data class KontrolSlider(
     override val description: String = "No description provided."
 ) : KontrolItem()
 
+@Serializable
+@SerialName("button")
+data class KontrolButton(
+    override val name: String,
+    val iconOnly: Boolean = false,
+    override val icon: KontrolIcons? = null,
+    override val description: String = "No description provided.",
+) : KontrolItem()
+
 /*@Serializable
 @SerialName("toggle")
 data class KontrolToggle(

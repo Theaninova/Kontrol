@@ -1,10 +1,7 @@
 package de.theaninova.kontrol.controls
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
@@ -21,6 +18,7 @@ import de.theaninova.kontrol.controls.schema.KontrolSlider
 import dev.burnoo.compose.rememberpreference.rememberBooleanPreference
 import dev.burnoo.compose.rememberpreference.rememberFloatPreference
 
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalComposeUiApi
 @Composable
 fun Kontrol(item: KontrolItem, enabled: Boolean, parentKey: String) {
